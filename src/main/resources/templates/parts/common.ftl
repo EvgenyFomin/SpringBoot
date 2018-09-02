@@ -1,3 +1,4 @@
+<#macro page>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +6,7 @@
     <title>SpringBoot</title>
 </head>
 <body>
-
+<#nested>
 </body>
 </html>
+</#macro>
