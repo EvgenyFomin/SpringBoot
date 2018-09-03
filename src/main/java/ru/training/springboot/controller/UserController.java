@@ -4,11 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import ru.training.springboot.domain.Role;
+import ru.training.springboot.domain.User;
 import ru.training.springboot.repository.UserRepository;
 
 @Controller
-@RequestMapping(name = "/user")
+@RequestMapping("/user")
 public class UserController {
     @Autowired
     private UserRepository userRepository;
@@ -20,4 +23,11 @@ public class UserController {
         return "userList";
     }
 
+    @GetMapping("{user}")
+    public String userEditForm(@PathVariable User user, Model model) {
+        model.addAttribute("user", user);
+        model.addAttribute("roles", Role.values());
+
+        return "userEdit";
+    }
 }
