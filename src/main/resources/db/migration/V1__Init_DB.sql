@@ -1,6 +1,6 @@
 create table hibernate_sequence (next_val bigint) engine=MyISAM;
 
-insert into hibernate_sequence (next_val) values(1);
+insert into hibernate_sequence (next_val) values(2);
 
 create table message (
     id bigint not null,
